@@ -1,26 +1,19 @@
 ---
 layout: default
+title: Archive
 ---
 
-{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
-  {% include page__hero.html %}
-{% elsif page.header.video.id and page.header.video.provider %}
-  {% include page__hero_video.html %}
-{% endif %}
+<!-- Begin List Posts
+================================================== -->
 
-{% if page.url != "/" and site.breadcrumbs %}
-  {% unless paginator %}
-    {% include breadcrumbs.html %}
-  {% endunless %}
-{% endif %}
+<h1>Archive of posts with <span>{{ page.type }} '{{ page.title }}'</span></h1>
 
-<div id="main" role="main">
-  {% include sidebar.html %}
+<div class="blog-grid-container">
 
-  <div class="archive">
-    {% unless page.header.overlay_color or page.header.overlay_image %}
-      <h1 id="page-title" class="page__title">{{ page.title }}</h1>
-    {% endunless %}
-    {{ content }}
-  </div>
+{% for post in page.posts %}
+
+{% include postbox.html %}
+
+{% endfor %}
+
 </div>
